@@ -110,7 +110,7 @@
            </h2>
            <button type="button" id="login_close">X</button> <!--닫기 버튼-->
        </div>
-       <div class="login_body" method="post" id="signInForm">
+       <div class="login_body">
            <form>
                <table class="login_table">
                    <tr>

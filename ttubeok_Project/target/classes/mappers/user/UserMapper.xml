@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    
+<mapper namespace="com.spring.ttubeok.user.repository.IUserMappper">
+
+	<!-- DB 컬럼명과 VO 클래스의 필드명 맵핑작업 -->
+	<resultMap id="UserMap" type="com.spring.ttubeok.user.model.UserVO">
+		
+		<id property="userId" column="user_id" />
+		<result property="password" column="password"/>
+		<result property="name" column="name"/>
+		<result property="regDate" column="reg_date"/>
+		<result property="sessionId" column="session_id"/>
+		<result property="limitTime" column="limit_time"/>
+		
+	</resultMap>
+
+</mapper>
