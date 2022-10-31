@@ -6,104 +6,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-<!-- link rel="stylesheet" href="./css/common.css"> -->
+<link rel="stylesheet" type="text/css" href="./css/common.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Dongle&family=Jua&family=Maven+Pro:wght@500&family=Nanum+Pen+Script&family=Nunito&display=swap" rel="stylesheet">
 </head>
-<!--jsp:include page="user/login_modal.jsp" /-->
-<style type="text/css">
-    .container{width: 1200px; height: 880px;
-        background: url(./images/bg1.png); margin: 10px auto;
-        position: relative;}
-    .main_nav{text-align: right; font-size: 1.5em; padding-right: 35px;}
-    .main_nav ul li{list-style: none; display:inline-block; padding: 20px 10px 0px 40px}
-    .main_nav ul a{text-decoration: none; color: #000;}
-    .main_nav ul a:nth-child(1){background-image:url(./images/login.png); background-size: 25%; background-repeat: no-repeat; background-origin:content-box ;}
-    .main_nav ul a:nth-child(2){background-image:url(./images/join2.png); background-size: 25%; background-repeat: no-repeat; background-origin:content-box;}
-    .main_nav ul a:hover{font-weight: bold;}    
-    .title{position: absolute; top: 80px; left: 250px; display: flex;}
-    .tfont{font-size: 8em; font-family: 'Nanum Pen Script', cursive; padding-left: 25px;}
-    .menuboard{width: 1060px; position: absolute; bottom: 30px; display: flex; justify-content: space-between; margin-left: 70px;}
-    .menuboard a{text-decoration: none; color: #000;}
-    .menu{width: 320px; height: 250px; background: rgba(255, 255, 255, 0.95); text-align: center;}
-    .menu img{padding-top: 20px; width:60px; height: 60px;}
-    .menu p:nth-of-type(1){font-size: 2.5em; font-family: 'Jua', sans-serif; margin: 10px 0;}
-   
-    .fcontainer{width: 1200px; margin: 0 auto; position: relative;}
-    .fcontainer span{position: absolute; left: 20px; bottom: 15px; color: #fff;}
-
-
-
-
-    #login_modal{display: block; width: 400px; height: 500px; position: fixed;
-        top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 20px 0 #e8e8e8;
-        background: #fff; border-radius: 10px;
-    }  
-    .login_header{border-bottom: 1px solid #dee2e6; display: flex; position: relative;}
-    .login_logo{font-size: 1.25em; font-family: 'Nanum Pen Script', cursive; padding-left: 15px;}
-    #login_close{height: 25px; float: right; position: absolute; top: 25px; right: 15px;}
-   
-    .login_table{border-collapse: collapse; width: 100%;}
-    .login_body{padding: 0 20px; display: block;}
-    .Llabel{padding-top: 10px;}
-    .login_input{border: 1px solid #d9d9de; box-sizing: border-box; width: 100%; height: 40px;}
-    #auto_login{margin-top: 20px; margin-bottom: 20px;}
-    .L_button{margin-top: 20px; width: 100%; height: 40px; padding: 0 20px; border: none; border-radius: 5px;}
-
-</style>
 <body>
-    
-    
-    
-    <div>
-        <div class="container">
-        	<nav class="main_nav">
-                <ul>
-                    <a href="#" id="login"><li>로그인</li></a>
-                    <a href="#"><li>회원가입</li></a>
-                </ul>
-            </nav>
-            <div class="title">
-                <img src="images/footlogo.png" width="150px" height="150px">
-                <span class="tfont">뚜벅 데이트</span>
-            </div>
 
-            <div class="menuboard">
-                <a href="#">
-                    <div class="menu">
-                        <img src="images/route.png">
-                        <p>뚜벅 코스</p>
-                        <p>데이트 코스 검색, 조회</p>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="menu">
-                        <img src="images/user.png">
-                        <p>마이 페이지</p>
-                        <p>좋아요 누른 코스</p>
-                        <p>내가 작성한 데이트 코스</p>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="menu">
-                        <img src="images/commynuty.png">
-                        <p>커뮤니티</p>
-                        <p>데이트 코스 질문</p>
-                        <p>묻고 답하기</p>
-                    </div>
-                </a>
-            </div>
-            
-
-
-        </div>
-    </div>
-
-	
-    
-	
-	<div id="login_modal">
+    <div id="login_modal">
        <div class="login_header">
            <h2 class="modal-title">
                <span class="login_logo">뚜벅데이트</span> 로그인
@@ -156,13 +66,6 @@
    </div>
    
    
-   
-   <footer>
-        <div class="fcontainer">
-            <span>Copyright ⓒ By Ali 2022 </span>
-        </div>
-    </footer>
-	
    
    
     <script type="text/javascript">
@@ -443,5 +346,8 @@
 
 
     </script>
+   
+
+   
 </body>
 </html>
