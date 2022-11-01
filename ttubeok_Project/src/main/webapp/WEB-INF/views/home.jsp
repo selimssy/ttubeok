@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,7 @@
    .main_nav ul a{text-decoration: none; color: #000;}
    .main_nav ul a:nth-child(1){background-image:url(./images/login.png); background-size: 25%; background-repeat: no-repeat; background-origin:content-box ;}
    .main_nav ul a:nth-child(2){background-image:url(./images/join2.png); background-size: 25%; background-repeat: no-repeat; background-origin:content-box;}
+   .main_nav ul #logout{background-image:url(./images/logout.png); background-size: 25%; background-repeat: no-repeat; background-origin:content-box;}
    .main_nav ul a:hover{font-weight: bold;}    
    .title{position: absolute; top: 80px; left: 250px; display: flex;}
    .tfont{font-size: 8em; font-family: 'Nanum Pen Script', cursive; padding-left: 25px;}
@@ -60,12 +62,24 @@
    
     <div>
         <div class="container">
-            <nav class="main_nav">
-                <ul>
-                    <a href="#" id="login"><li>로그인</li></a>
-                    <a href="#" id="join"><li>회원가입</li></a>
-                </ul>
-            </nav>
+        
+        	<c:if test="${login == null}" >  <!-- 로그인 안되어있을 경우 -->
+	            <nav class="main_nav">
+	                <ul>
+	                    <a href="#" id="login"><li>로그인</li></a>
+	                    <a href="#" id="join"><li>회원가입</li></a>                
+	                </ul>    
+	           </nav>     
+           </c:if>                
+           <c:if test="${login != null}">  <!-- 로그인 되어있을 경우 -->
+           		<nav class="main_nav">
+           			<ul>
+           				<a href="/ttubeok/user/logout" id="logout" onclick="return confirm('로그아웃 하시겠습니까?')"><li>로그아웃</li></a>
+           			</ul>
+           		</nav>
+           </c:if>
+
+            
             <div class="title">
                 <img src="./images/footlogo.png" width="150px" height="150px">
                 <span class="tfont">뚜벅 데이트</span>
@@ -150,7 +164,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <button type="button" class="m_button">로그인</button>
+                            <button type="button" class="m_button" id="signIn-btn">로그인</button>
                         </td>
                     </tr>
                     <tr>
@@ -319,7 +333,7 @@
                     chk2 = false;
                 } else {
                     $('#password').css("background-color", "aqua");
-                    $('#pwChk').html('<b style="font-size:14px;color:green;">[참 잘했어요]</b>');
+                    $('#pwChk').html('<b style="font-size:14px;color:green;">[사용 가능한 비밀번호입니다.]</b>');
                     chk2 = true;
                 }
                
@@ -340,7 +354,8 @@
                     chk3 = false;
                 } else {
                     $('#password_check').css("background-color", "aqua");
-                    $('#pwChk2').html('<b style="font-size:14px;color:green;">[참 잘했어요]</b>');
+                    //$('#pwChk2').html('<b style="font-size:14px;color:green;">[참 잘했어요]</b>');
+                    $('#pwChk2').html('<img src="./images/pwchk2.png" width="15px" height="15px">');
                     chk3 = true;
                 }
                
@@ -361,7 +376,8 @@
                     chk4 = false;
                 } else {
                     $('#user_name').css("background-color", "aqua");
-                    $('#nameChk').html('<b style="font-size:14px;color:green;">[참 잘했어요]</b>');
+                    //$('#nameChk').html('<b style="font-size:14px;color:green;">[참 잘했어요]</b>');
+                    $('#nameChk').html('<img src="./images/pwchk2.png" width="15px" height="15px">');
                     chk4 = true;
                 }
                
@@ -465,7 +481,7 @@
            
             //로그인 버튼 클릭이벤트
             $("#signIn-btn").click(function() {
-                if(chk1 && chk2) {
+                if(chk1 && chk2) {           	
                     //ajax통신으로 서버에서 값 받아오기
                     const id = $('#signInId').val();
                     const pw = $('#signInPw').val();
@@ -477,14 +493,14 @@
                     console.log("auto: " + autoLogin);
                    
                     const userInfo = {
-                            account : id,
+                            userId : id,
                             password : pw,
                             autoLogin : autoLogin
                     };
                    
                     $.ajax({
                         type: "POST",
-                        url: "/user/loginCheck",
+                        url: "/ttubeok/user/loginCheck",
                         headers: {
                             "Content-Type": "application/json"
                         },
@@ -505,7 +521,7 @@
                                 $('#pwCheck').html('<b style="font-size:14px;color:red;">[비밀번호가 일치하지 않습니다.]</b>');
                                 chk2 = false;
                             } else if(data === "loginSuccess") {
-                                self.location="/";
+                                self.location="/ttubeok";
                             }
                         }
                     });

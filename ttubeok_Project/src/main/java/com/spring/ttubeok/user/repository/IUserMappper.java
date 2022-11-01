@@ -1,5 +1,8 @@
 package com.spring.ttubeok.user.repository;
 
+import java.util.List;
+import java.util.Map;
+
 import com.spring.ttubeok.user.model.UserVO;
 
 public interface IUserMappper {
@@ -13,5 +16,17 @@ public interface IUserMappper {
 	
 	// 회원탈퇴 기능
 	void delete(String userId);
+	
+	// 회원정보 조회기능
+	UserVO selectOne(String userId);
+	
+	// 전체회원 조회기능
+	List<UserVO> selectAll();
+	
+	// 자동로그인 쿠키값 DB저장 처리
+	void keepLogin(Map<String, Object> datas);
+	
+	// 세션아이디를 통한 회원정보 조회기능
+	UserVO getUserWithSessionId(String sessionId);
 
 }
