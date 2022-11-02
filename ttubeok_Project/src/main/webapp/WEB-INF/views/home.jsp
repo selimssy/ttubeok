@@ -55,7 +55,7 @@
    .mlabel{padding-top: 10px;}
    .modal_input{border: 1px solid #d9d9de; box-sizing: border-box; width: 100%; height: 40px;}
    #auto_login{margin-top: 20px; margin-bottom: 20px;}
-   .m_button{margin-top: 20px; width: 100%; height: 40px; padding: 0 20px; border: none; border-radius: 5px;}
+   .m_button{margin-top: 20px; width: 100%; height: 40px; padding: 0 20px; border: none; border-radius: 5px; cursor:pointer;}
 
 </style>
 <body>
@@ -169,7 +169,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <button type="button" class="m_button">회원가입</button>
+                            <button type="button" class="m_button" id="join-btn">회원가입</button>
                         </td>
                     </tr>
                 </table>
@@ -255,6 +255,9 @@
             $("#login_modal").css("display", "block")
         })
         $("#join").click(function(){
+            $("#join_modal").css("display", "block")
+        })
+        $("#join-btn").click(function(){
             $("#join_modal").css("display", "block")
         })
         $(".modal_close").on("click", function(){
